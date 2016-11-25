@@ -7,10 +7,11 @@ function aggregator() {
     if (n === " " || n === "") {
         alert("enter what is required");
     } else {
-        var array = [];
+        array = [];
         array.push(n, a, g);
         mainArray.push(array);
         cleaner();
+        writer();
     }
 }
 
@@ -20,4 +21,21 @@ function cleaner() {
     document.getElementById("gender").value = "";
 }
 
-console.log(mainArray);
+function writer() {
+    todoList = document.getElementById("Todo_list");
+    list = "";
+    for (var i = 0; i < mainArray.length; i++) {
+        index = i;
+        list += "<li>" + mainArray[i] + "</li>" + "<button onclick = 'removeOne()'>Remove item</button>";
+        todoList.innerHTML = list;
+    }
+}
+
+function removeOne() {
+    
+}
+
+function removeAll() {
+    mainArray = [];
+    todoList.innerHTML = "";
+}
